@@ -1,6 +1,9 @@
-<?php 
+<?php  namespace Acme\Mailers;
 
-abstract class Mailer {
+use Illuminate\Support\Facades\Mail;
+
+abstract class Mailer
+{
 
     /**
      * @var
@@ -22,7 +25,7 @@ abstract class Mailer {
      * @param $view
      * @param $data
      */
-    public function sendTo($user, $subject, $view, $data = [])
+    public function sendTo($user, $subject, $view, array $data = [])
     {
         $this->mail->queue($view, $data, function ($message) use ($user, $subject) {
             $message->to($user->email)

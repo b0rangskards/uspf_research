@@ -6,7 +6,7 @@ class SignInForm extends FormValidator
 {
 
     protected $rules = [
-        'username' => 'required',
+        'email' => 'required|email',
         'password' => 'required'
     ];
 

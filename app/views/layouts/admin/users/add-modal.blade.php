@@ -7,7 +7,11 @@
                                     </div>
                                     <div class="modal-body">
 
-                                        <form class="form-horizontal" role="form">
+                                        {{-- Display Errors Here --}}
+                                        @include('layouts.partials.errors')
+
+                                        {{ Form::open(['route' => 'register', 'class' => 'form-horizontal', 'role' => 'form']) }}
+
                                             <div class="form-group">
                                                 <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Email</label>
                                                 <div class="col-lg-10">
@@ -19,7 +23,8 @@
                                                     <button type="submit" class="btn btn-default">Register</button>
                                                 </div>
                                             </div>
-                                        </form>
+
+                                        {{ Form::close() }}
 
                                     </div>
 

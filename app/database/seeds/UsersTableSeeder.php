@@ -7,9 +7,8 @@ class UsersTableSeeder extends MasterSeeder {
         /* Create admin account */
 
         User::create([
-            'username' => 'admin',
-            'password' => Hash::make('1234'),
             'email' => 'admin@gmail.com',
+            'password' => Hash::make('1234'),
             'recstat' => 'A'
         ]);
     }

@@ -66,6 +66,8 @@
       <sourceFolder url="file://$MODULE_DIR$/vendor/laracasts/presenter/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/vendor/laracasts/flash/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/vendor/laracasts/presenter" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/Acme" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

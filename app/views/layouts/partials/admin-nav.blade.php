@@ -23,7 +23,7 @@
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img alt="" src="{{ asset('img/icon-user-default.png') }}">
-                <span class="username"> {{ $currentUser->username }} </span>
+                <span class="username"> {{ $currentUser->email }} </span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">

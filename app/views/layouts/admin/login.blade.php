@@ -20,8 +20,9 @@
                 {{-- Display Errors Here --}}
                 @include('layouts.partials.errors')
 
-                {{ Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Username', 'autofocus' => 'autofocus']) }}
+                {{ Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Email', 'autofocus' => 'autofocus']) }}
                 {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password']) }}
+
             </div>
 
             {{ Form::submit('Sign in', ['class' => 'btn btn-lg btn-login btn-block']) }}

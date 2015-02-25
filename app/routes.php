@@ -70,9 +70,18 @@ Route::group(['prefix' => 'admin'], function () {
             'uses' => 'AdminsController@dashboard'
         ]);
 
-        Route::resource('users', 'UsersController', [
-            'except' => ['create', 'show', 'edit']
+        Route::get('/users', [
+            'as' => 'users',
+            'uses' => 'UsersController@index'
         ]);
+
+        Route::post('/register', [
+            'as' => 'register',
+            'uses' => 'UsersController@store'
+        ]);
+//        Route::resource('users', 'UsersController', [
+//            'except' => ['create', 'show', 'edit']
+//        ]);
 
     });
 

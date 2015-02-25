@@ -170,6 +170,8 @@
             "aaSorting": [[4, "desc"]]
         });
 
+        $('#flash-overlay-modal').modal();
+
     });
 
 

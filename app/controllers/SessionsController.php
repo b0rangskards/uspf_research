@@ -36,14 +36,14 @@ class SessionsController extends BaseAdminController {
         // fetch the form
         // validate the form
         // if invalid then go back
-        $formData = Input::only('username', 'password');
+        $formData = Input::only('email', 'password');
 
         $this->signInForm->validate($formData);
 
         // if is valid, then try to sign in
         if( ! Auth::attempt($formData))
         {
-            Flash::error('Invalid Username/Password.');
+            Flash::error('Invalid Email/Password.');
             return Redirect::back()->withInput();
         }
 

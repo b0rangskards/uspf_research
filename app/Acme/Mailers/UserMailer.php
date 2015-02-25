@@ -1,14 +1,16 @@
-<?php
+<?php  namespace Acme\Mailers;
 
+use User;
 
-class UserMailer extends Mailer {
+class UserMailer extends Mailer
+{
 
     /**
      * @param User $user
      */
     public function sendConfirmationMessage(User $user)
     {
-        $subject = 'Welcome to aidPH';
+        $subject = 'Welcome to USPF Center for Research';
         $view = 'emails.registration.confirm';
 
         $data = [

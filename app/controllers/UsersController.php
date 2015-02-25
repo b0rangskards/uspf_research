@@ -1,10 +1,20 @@
 <?php
 
+use Acme\Forms\CreateUserForm;
+use Acme\Mailers\UserMailer;
+
 class UsersController extends BaseAdminController {
 
+    private $mailer;
+    private $createUserForm;
 
+    function __construct(CreateUserForm $createUserForm, UserMailer $mailer)
+    {
+        $this->mailer = $mailer;
+        $this->createUserForm = $createUserForm;
+    }
 
-	/**
+    /**
 	 * Display a listing of the resource.
 	 * GET /users
 	 *
@@ -15,16 +25,6 @@ class UsersController extends BaseAdminController {
 		return View::make('layouts.admin.users.users')->with('table', 'Users');
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /users/create
-	 *
-	 * @return Response
-	 */
-//	public function create()
-//	{
-//		//
-//	}
 
 	/**
 	 * Store a newly created resource in storage.
@@ -34,32 +34,22 @@ class UsersController extends BaseAdminController {
 	 */
 	public function store()
 	{
-		//
-	}
+        $formData = Input::only('email');
 
-	/**
-	 * Display the specified resource.
-	 * GET /users/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-//	public function show($id)
-//	{
-//		//
-//	}
+        $this->createUserForm->validate($formData);
 
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /users/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-//	public function edit($id)
-//	{
-//		//
-//	}
+        $formData['activation_code'] = str_random(10);
+
+        $user = User::create($formData);
+
+        if($user)
+        {
+            $this->mailer->sendConfirmationMessage($user);
+            Flash::message('User Successfully Created!');
+            return Redirect::back();
+        }
+
+    }
 
 	/**
 	 * Update the specified resource in storage.
